@@ -31,17 +31,17 @@ def handle_client(client_socket, client_address):
 def broadcast(message, sender_socket):
     for client in clients:
         # Send the message to all clients except the sender
-        #if client != sender_socket:
-        try:
-            print('sent to all')
-            client.send(message.encode())
-        except:
-            print('client removed')
-            # Remove the broken connection
-            clients.remove(client)
+        if client != sender_socket:
+            try:
+                print('sent to all')
+                client.send(message.encode())
+            except:
+                print('client removed')
+                # Remove the broken connection
+                clients.remove(client)
 
 # Define the server address (host, port)
-server_address = ('0.0.0.0', 12346)
+server_address = ('localhost', 12346)
 
 # Create a socket object
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

@@ -25,3 +25,15 @@ Encrypted messages are stored in a MySQL database. Each record in the database c
 
 4. Decryption
 Upon retrieval, the encrypted message is decrypted using the reverse process of the encryption algorithm. The binary data is reverted to its original text form and displayed in the chat window.
+
+Example
+Stored Data
+An example of a stored encrypted message in the MySQL database:
+
+Message (Binary Format):
+Copy code
+1101111011010000010011001101001010100000000101111001000010...
+User ID: 1
+Receiver ID: 2
+Decrypted Message
+The above binary data, when decrypted, translates back into the original message, e.g., hello.
